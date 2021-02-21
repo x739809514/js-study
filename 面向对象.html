@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     class test{
+    //         constructor(uname){
+    //             this.name=uname;
+    //         }
+    //         sing(name){
+    //             console.log(this.name+name);
+    //         }
+    //     }
+
+    //   var ls=new test('忻佳梁');
+    //   console.log(ls.sing('啦啦啦'));
+
+    var that;
+      class Father{
+          constructor(x,y){
+           that=this;
+           this.x=x;
+           this.y=y;
+          }
+          Money(){
+              console.log(this.x+this.y);
+          }
+          say(){
+              return '我是爸爸';
+          }
+          dance(){
+              console.log(this);
+          }
+      }
+      class son extends Father{
+          constructor(x,y){
+              //super必须在子类this前调用
+              super(x,y);
+             this.x=x;
+             this.y=y;    //调用父类中的构造函数
+          }
+        say(){
+            return '我是儿子';
+        }
+        substrat(){
+            console.log(this.x-this.y);
+        }
+      }
+      var son2=new son(5,2);
+      son2.substrat();
+      son2.Money();
+      son2.dance();
+      console.log(that===son2);
+    </script>
+</body>
+</html>

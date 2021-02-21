@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //闭包：有权访问另一个函数作用域变量的函数
+        //fun()访问了fn()中的变量
+        function fn(){
+            var num=0;
+            function fun(){
+                console.log(num);
+            }
+            fun();
+        }
+        fn();
+        //闭包可以使fn外部的变量访问fn内部的变量
+    </script>
+    
+</body>
+</html>

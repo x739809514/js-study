@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<scr>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var that;
+        function Star(uname,age){
+            this.uname=uname;
+            this.age=age;
+        }
+
+        Star.prototype.sing=function(){
+            console.log('我会唱歌');
+            that=this;
+        }
+
+        // star.prototype={
+        //     //需手动的利用constructor这个属性指回原来的构造函数
+        //     constructor:star,
+
+        //     sing:function(){
+        //         console.log('sdfasd');
+        //     },
+        //     movie:function(){
+        //         console.log('fdghfd');
+        //     }    
+        // }
+
+        var l=new Star('刘德华',18);
+        //原型链，就近原则
+        //l.sex='男';
+        //Star.prototype.sex='男';
+        Object.prototype.sex='男';
+        //只有当调用函数时this对象才指向当前的实例
+        console.log(l.sex);
+        l.sing();
+        console.log(that===l);
+
+        //只要是对象就有_proto_原型，指向原型对象
+        console.log(Star.prototype);
+        console.log(Star.prototype._proto_=== Object.prototype);
+        //Star原型对象里面的_proto_指向的是Object.prototypr
+        console.log(Object.prototype._proto_);
+    </script>
+</body>
+</html>

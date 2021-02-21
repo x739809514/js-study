@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[1,2,3];
+        var sum=0;
+        arr1.forEach(function(value,index,array){
+            console.log('每个数组元素'+value);
+            console.log('每个数组元素的索引号'+index);
+            console.log('数组本身'+array);
+            sum+=value;
+        })
+        console.log(sum);
+
+        //filter 筛选数组,返回的是一个数组，把所有满足的元素返回
+        var arr2=[2,,66,4,88];
+       var newArray=arr2.filter(function(value,index){
+            return value>=20;
+        })
+        console.log(newArray);
+
+        //some() 查找元素,查找数组中是否中又满足元素的值,找到以后则终止循环不再继续寻找
+        var arr3=[10,30,4];
+        var arr4=['red','yellow','pink'];
+        var flag = arr3.some(function(value){
+            return value>=20;
+        })
+        console.log(flag);
+        var flag2=arr4.some(function(value){
+            return value=='aaa';
+        })
+        console.log(flag2);
+    </script>
+</body>
+</html>
