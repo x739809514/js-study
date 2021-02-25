@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="="text> <button>点击</button>
+    <div></div>
+    <script>
+        //trim方法去除字符串两侧空格
+        var str='  andy  ';
+        console.log(str);
+        var str1=str.trim();
+        console.log(str1);
+
+        var input=document.querySelector('input');
+        var btn=document.querySelector('button');
+        var div=document.querySelector('div');
+        //使用这种方法只是检查文本框中是否为空，若用户输入几个空格，则不会跳出警告
+        // btn.onclick=function(){
+        //     if(input.value==''){
+        //         alert('请输入内容');
+        //     }else{
+        //         div.innerHTML=input.value;
+        //     }
+        // }
+
+        //使用trim解决空格带来的问题
+        btn.onclick=function(){
+            var str=input.value.trim();
+            if(str===''){
+                alert('请输入内容');
+            }else{
+                div.innerHTML=str;
+            }
+        }
+    </script>
+
+</body>
+</html>

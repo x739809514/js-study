@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Click</button>
+    <script>
+        //改变函数内this指向， js提供了三种方法 call(),apply(),bind()
+        //1.call()
+        var o={
+            name:'andy'
+        }
+        function fn(a,b){
+            console.log(this);
+            console.log(a+b);
+        }
+        fn.call(o,1,2);
+        //call可以调用函数，可以改变函数内的this指向
+        //call的主要作用可以实现继承
+        function Father(uname,age,sex){
+            this.uname=uname;
+            this.age=age;
+            this.sex=sex;
+        }
+        function Son(uname,age,sex){
+            Father.call(this,uname,age,sex);
+        }
+        var son=new Son('刘德华',18,'男');
+        console.log(son);
+
+        //2.apply 
+        //调用函数，也可以改变函数内部的this指向
+        //但是他的参数必须是数组
+        //apply的应用 如可以利用apply借助于数学内置对象求最大值
+        var o={
+            name:'andy'
+        }
+        function fn(arr){
+            console.log(this);
+            console.log(arr);
+        }
+        fn.apply(o,['pink']);//参数必须是数组，打印出来的是字符串
+        var arr=[1,66,3,88,4];
+        var max=Math.max.apply(Math,arr);
+        console.log(max);
+
+        //3.bind方法 
+        //绑定方法但并不调用
+        //返回的是一个原函数改变this指针后的新函数
+        //如果有的函数我们不需要立即调用，但是又想改变这个函数的this指向 此时用bind       
+        var o={
+            name:'andy'
+        }
+        function fn(a,b){
+            console.log(this);
+            console.log(a+b);
+        }
+        fn.bind(o); //并不调用，但是会返回一个原函数改变this指针后的新函数,如下代码
+        var f=fn.bind(o,1,2);
+        f();
+        //bind用法
+        //我们有一个按钮，当我们点击之后，就禁用这个按钮，3秒钟之后恢复
+        var btn=document.querySelector('button');
+        btn.onclick=function(){
+            this.disabled=true;         //绑定事件中的this指向的是调用者(即btn)
+            setTimeout(function(){      
+                this.disabled=false;    //定时器中的this指代的是window
+            }.bind(this),3000);
+        }
+
+        btn.onclick=function(){
+            this.disabled=true;         
+            setTimeout(() => {
+                this.disabled=false;    //箭头函数没有自己的this，所以他会指向最近的外层代码块的this,在这里this指向外层的btn
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

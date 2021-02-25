@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            name:"asd",
+            age:18
+        };
+        
+        //obj.sex="男";
+        //定义新属性
+        Object.defineProperty(obj,'num',{
+            value:1000
+        });
+        console.log(obj);
+        //或修改原有属性
+        Object.defineProperty(obj,'age',{
+            value:20
+        });
+        console.log(obj);
+        //不允许修改属性
+        Object.defineProperty(obj,'name',{
+            writable:false
+        });
+        console.log(obj);
+    </script>
+</body>
+</html>

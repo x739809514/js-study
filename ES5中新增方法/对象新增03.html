@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var obj={
+            name:"asd",
+            age:18
+        };
+        Object.defineProperty(obj,"address",{
+            value:"中国大话科技",
+            writable:false,
+            //enumerable==false是则不会遍历，且默认为false
+            enumerable:false,
+            //configurable 为false时不允许删除，并且不允许修改第三个参数中的特性 默认为false
+            configurable:false
+        });
+        delete obj.address;
+        console.log(obj);
+        console.log(Object.keys(obj));
+    </script>
+</body>
+</html>

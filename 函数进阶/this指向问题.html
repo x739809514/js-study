@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数中this的指向
+
+        //1.普通函数
+        function fn(){
+            console.log('abababa'+this);
+        }
+        window.fn();    
+        //这里的this指向window
+
+        //2.对象方法中的this指向对象
+        var o={
+            sayHi:function(){
+                console.log('abababa'+this);
+            }
+        }
+        o.sayHi();
+
+        //3.构造函数
+        function star(){ };
+        //指向ldh,原型对象里面的this指向的也是ldh这个实例对象
+        star.prototype.sing=function(){}
+        var ldh=new star();
+        
+
+        //4.绑定事件函数中的this指向，该函数的调用者
+        btn.onclick=function(){}    //点击事件触发时调用
+
+        //5.定时器函数中的this指向的是window
+        setInterval(function(){},1000); //这个函数是定时器自动一秒钟调用一次
+
+        //6.立即执行函数中的this指向的是window
+        (function*(){console.log('abababa');})()    //立即执行函数是自动调用
+
+        //7.箭头函数没有自己的this，所以他会指向最近的外层代码块的this,在这里this指向外层的btn
+        btn.onclick=function(){
+            this.disabled=true;         
+            setTimeout(() => {
+                this.disabled=false;    
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
