@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //边界符^$
+        var rg=/abc/;   //只要包含abc这个字符串
+        console.log(rg.test('abc')); //true
+        console.log(rg.test('acbbc')); //false
+        console.log(rg.test('abcbcf'));  //true
+        console.log('---------------------------');
+        var rg=/^abc/;  //必须abc打头
+        console.log(rg.test('abc'));  //true
+        console.log(rg.test('acbbc'));  //false
+        console.log(rg.test('abcbc'));  //true
+        console.log('---------------------------');
+        var rg=/^abc$/; //$匹配输入字符串的结束位置 
+        console.log(rg.test('abc'));  //true
+        console.log(rg.test('abcbc'));  //false
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //替换 replace
+        var str='andy哔哔哔andy哔哔哔噗噗噗和red';
+        var newstr=str.replace(/哔哔哔/,'***');
+        var newstr2=str.replace(/哔哔哔/g,'***');
+        var newstr3=str.replace(/哔哔哔|噗噗噗/g,'***');
+        console.log(newstr);
+        console.log(newstr2);
+        console.log(newstr3);
+        //利用正则
+
+    </script>
+</body>
+</html>

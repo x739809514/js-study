@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //正则表达式可以匹配字符串组合的模式，在js中正则表达式也是对象
+        //1.灵活性，逻辑性和功能性强
+        //2.表达简洁
+
+        //1.利用RegExp来创建正则表达式
+        var regexp=new RegExp(/123/);
+        console.log(regexp);
+        //2.利用字面量创建正则表达式
+        var rg=/123/;
+        console.log(rg.test(123));//test方法测试字符串
+    </script>
+</body>
+</html>

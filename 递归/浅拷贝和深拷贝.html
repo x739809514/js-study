@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //浅拷贝只拷贝一层，更深层次对象级别的只拷贝引用
+        var obj={
+
+            id:1,
+            name:'andy',
+            msg:{
+                age:18
+            },
+            color:['pink','red']
+        };
+        var o={
+
+        };
+        // for(var k in obj){
+        //     //k是属性名 obj[k]是属性值
+        //     o[k]=obj[k];    //这样属于浅拷贝，通过这种方法，o和obj的地址都会指向同一块地址，这样就会污染对象
+        // }
+        // o.msg.age=20;       //就像这样，obj.msg.age也会变成20
+        // console.log(obj);
+
+        // console.log('----------');
+        // Object.assign(o,obj);   //这还是浅拷贝
+        // console.log(o);
+
+
+
+        //深拷贝拷贝多层，每一级别的数据都会拷贝
+        //封装函数
+        function deepcopy(newobj,oldobj){
+            for(var k in oldobj){
+                //判断我们的属性值属于哪种数据类型
+                //1.获取属性值 oldobj[k]
+                var item=oldobj[k];
+                //2.判断这个值是否是数组
+                if(item instanceof Array){
+                    newobj[k]=[];
+                    deepcopy(newobj[k],item)
+                }else if(item instanceof Object){
+                    //3.判断这个值是否为对象
+                    newobj[k]={};
+                    deepcopy(newobj[k],item);
+                }else{
+                    //4.属于简单数据类型
+                    newobj[k]=item;
+                }  
+            }
+        }
+        deepcopy(o,obj);
+        console.log(o);
+    </script>
+</body>
+</html>

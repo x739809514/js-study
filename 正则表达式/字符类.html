@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字符类[] 表示有一系列字符可供选择，只需匹配其中一个就可以了
+        var rg=/[abc]/; //只要包含有a 或者包含有b 或者包含有c 都返回true
+        console.log(rg.test('andy'));
+        console.log(rg.test('baby'));
+        console.log(rg.test('color'));
+        console.log(rg.test('rid'));
+        console.log('----------------');
+        var rg=/^[abc]$/;   //只能是a或b或c才会返回true；
+        console.log(rg.test('a'));
+        console.log(rg.test('b'));
+        console.log(rg.test('c'));
+        console.log(rg.test('aa'));
+        console.log('----------------');
+        var rg=/^[a-z]$/;
+        console.log(rg.test('a'));
+        console.log(rg.test('b'));
+        console.log(rg.test('1'));
+        console.log(rg.test('z'));
+        console.log('----------------');
+        var rg=/^[a-zA-Z0-9_-]$/;
+        console.log(rg.test('as_A'));
+        console.log(rg.test('b'));
+        console.log(rg.test('1'));
+        console.log(rg.test('z'));
+        console.log('----------------');
+        var rg=/^[^a-zA-Z0-9_-]$/;  //方括号中的^表示取反
+    </script>
+</body>
+</html>
